@@ -1,0 +1,248 @@
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: #f8f8ff;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.headH {
+	position: fixed;
+	display: flex;
+	flex-direction: row;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: #fff;
+	height: 70px;
+	box-shadow: 0px 20px 70px rgba(86, 89, 146, 0.10);
+	justify-content: space-between;
+	align-content: center;
+	align-items: center;
+	padding-inline: 25px;
+	border: 1px solid #ededff;
+	z-index: 99;
+}
+
+.headI {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+h3#titleSec {
+  margin-top: 120px;
+  padding-inline: 25px;
+}
+
+.mainCont {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+  align-content: center;
+}
+
+.secDS,
+.secVU,
+.secGRN,
+.secMES,
+.secRM,
+.secDT,
+.secDP,
+.secRP {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 25px 15px;
+  box-shadow: 0px 5px 10px rgba(86, 89, 146, 0.05);
+  margin: 10px;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .mainCont {
+      flex-direction: row; /* Change to row for grid-like layout */
+      flex-wrap: wrap; /* Enable wrapping of child elements */
+      justify-content: space-between; /* Center the child elements */
+  }
+
+  .mainCont > div {
+      flex: 1 1 45%; /* Allow children to take 50% of the width */
+      max-width: 45%; /* Ensure a max-width of 50% */
+  }
+
+  .mainCont > div:first-child,
+  .mainCont > div:last-child {
+      flex: 1 1 100%; /* Make the first and last children take full width */
+      max-width: 100%; /* Ensure a max-width of 100% */
+  }
+}
+
+
+.secDS {
+	flex-direction: row;
+}
+
+.secDS input#date {
+	width: auto;
+}
+
+.secDS>div {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.secVU>div,
+.secGRN>div,
+.secMES>div,
+.secRM>div,
+.secDT>div,
+.secDP>div {
+	width: 100%;
+}
+
+
+#vehicle-unloaded,
+#vehicle-pending {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.vehicle-pending-row,
+.vehicle-unloaded-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+
+button {
+	box-shadow: 0 15px 33px -10px #4162ff;
+	color: #fff;
+	background-color: #5476ff;
+	border: none;
+	border-radius: 8px;
+	padding: 10px 15px;
+	cursor: pointer;
+	color: #fff;
+	font-weight: 500;
+	transition: all .3s;
+	align-self: flex-start;
+}
+
+button:hover {
+	box-shadow: 0 5px 20px -10px #4162ff;
+}
+
+button.btn {
+	padding: 5px;
+	justify-content: center;
+	display: flex;
+	background: #fff;
+	position: relative;
+	margin: 0 5px;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: all 300ms ease-in-out;
+	box-shadow: 0px 20px 70px rgba(86, 89, 146, 0.10);
+	border: 1px solid #ededff;
+}
+
+button.btn:hover {
+	border-color: #5476ff;
+	background-color: #f8f8ff;
+}
+
+button.btn img {
+	height: 25px;
+	width: 25px;
+}
+
+button.clear {
+	background-color: #fff;
+	border: 1px solid #ededff;
+	border-radius: 8px;
+	padding: 7px 10px;
+	cursor: pointer;
+	font-weight: 500;
+	transition: all .3s;
+	box-shadow: 0px 20px 70px rgba(86, 89, 146, 0.10);
+	align-self: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+button.clear:hover {
+	background-color: #f8f8ff;
+}
+
+label {
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+input {
+	padding: 8px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.inline {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+	margin-block: 10px;
+}
+
+select {
+	padding: 8px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	flex: 1;
+}
+
+input[type="number"] {
+	width: 4ch;
+}
+
+input[type="text"] {
+	width: 10ch;
+}
+
+.clear {
+	flex-shrink: 0;
+}
+
+.secRM select,
+.secRP select {
+	max-width: 78px;
+}
+
+.exportBtn {
+	position: fixed;
+	bottom: 10px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	border-radius: 50px;
+	max-width: max-content;
+	box-shadow: 0px 20px 70px rgba(86, 89, 146, 0.10);
+	background: #fff;
+	padding: 5px 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 5;
+	border: 1px solid #ededff;
+}
