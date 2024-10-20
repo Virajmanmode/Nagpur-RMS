@@ -67,8 +67,8 @@ function addVehicle(vehicle = '') {
     const imgElement = document.createElement('img');
     imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Image URL
     imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
-    imgElement.style.width = '20px'; // Adjust the size as needed
-    imgElement.style.height = '20px';
+    imgElement.style.width = '15px'; // Adjust the size as needed
+    imgElement.style.height = '15px';
 
     // Append the image to the button
     clearButton.appendChild(imgElement);
@@ -135,8 +135,8 @@ function addPendingVehicle(vehicle = '', count = 1) {
     const imgElement = document.createElement('img');
     imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Image URL
     imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
-    imgElement.style.width = '20px'; // Adjust the size as needed
-    imgElement.style.height = '20px';
+    imgElement.style.width = '15px'; // Adjust the size as needed
+    imgElement.style.height = '15px';
 
     // Append the image to the button
     clearButton.appendChild(imgElement);
@@ -199,8 +199,8 @@ function addGRNDone(grnDone = '') {
     const imgElement = document.createElement('img');
     imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Image URL
     imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
-    imgElement.style.width = '20px'; // Adjust the size as needed
-    imgElement.style.height = '20px';
+    imgElement.style.width = '15px'; // Adjust the size as needed
+    imgElement.style.height = '15px';
 
     // Append the image to the button
     clearButton.appendChild(imgElement);
@@ -260,8 +260,8 @@ function addGRNPending(grnPending = '', remark = '') {
     const imgElement = document.createElement('img');
     imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Image URL
     imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
-    imgElement.style.width = '20px'; // Adjust the size as needed
-    imgElement.style.height = '20px';
+    imgElement.style.width = '15px'; // Adjust the size as needed
+    imgElement.style.height = '15px';
 
     // Append the image to the button
     clearButton.appendChild(imgElement);
@@ -320,8 +320,8 @@ function addMESDone(mesDone = '') {
     const imgElement = document.createElement('img');
     imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Image URL
     imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
-    imgElement.style.width = '20px'; // Adjust the size as needed
-    imgElement.style.height = '20px';
+    imgElement.style.width = '15px'; // Adjust the size as needed
+    imgElement.style.height = '15px';
 
     // Append the image to the button
     clearButton.appendChild(imgElement);
@@ -388,8 +388,8 @@ function addMESPending(mesPending = '', lot = 1, remark = '') {
     const imgElement = document.createElement('img');
     imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Image URL
     imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
-    imgElement.style.width = '20px'; // Adjust the size as needed
-    imgElement.style.height = '20px';
+    imgElement.style.width = '15px'; // Adjust the size as needed
+    imgElement.style.height = '15px';
 
     // Append the image to the button
     clearButton.appendChild(imgElement);
@@ -468,8 +468,8 @@ function addMajorDownTime(fromTime = '', toTime = '', remark = '') {
     const imgElement = document.createElement('img');
     imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Image URL
     imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
-    imgElement.style.width = '20px'; // Adjust the size as needed
-    imgElement.style.height = '20px';
+    imgElement.style.width = '15px'; // Adjust the size as needed
+    imgElement.style.height = '15px';
 
     // Append the image to the button
     clearButton.appendChild(imgElement);
@@ -546,8 +546,8 @@ function addDownTime(fromTime = '', toTime = '', remark = '') {
     const imgElement = document.createElement('img');
     imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Image URL
     imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
-    imgElement.style.width = '20px'; // Adjust the size as needed
-    imgElement.style.height = '20px';
+    imgElement.style.width = '15px'; // Adjust the size as needed
+    imgElement.style.height = '15px';
 
     // Append the image to the button
     clearButton.appendChild(imgElement);
@@ -614,8 +614,8 @@ function addDispatch(dispatch = '') {
     const imgElement = document.createElement('img');
     imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Image URL
     imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
-    imgElement.style.width = '20px'; // Adjust the size as needed
-    imgElement.style.height = '20px';
+    imgElement.style.width = '15px'; // Adjust the size as needed
+    imgElement.style.height = '15px';
 
     // Append the image to the button
     clearButton.appendChild(imgElement);
