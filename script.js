@@ -949,7 +949,7 @@ function exportAsTXT() {
     const date = document.getElementById('date').value;
     const shift = document.getElementById('shift').value;
 
-    let txtData = `*📊 RAW MATERIAL STORE (Shift Report)*\nDate:*📅 ${date}*\nShift:*🕒 ${shift}*\n\n`;
+    let txtData = `*📊 RAW MATERIAL STORE (Shift Report)*\n*📅 Date:* ${date}\n*🕒 Shift:* ${shift}\n\n`;
 
     // Vehicle Unloaded
     const vehiclesUnloaded = document.querySelectorAll('#vehicle-unloaded select');
