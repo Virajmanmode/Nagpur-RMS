@@ -3,7 +3,7 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Raw Material Store Report</title>
+      <title>Nagpur RMS (CEAT)</title>
       <link rel="stylesheet" href="style.css">
    </head>
    <body>
@@ -15,7 +15,7 @@
          <span>v1.0</span>
       </div>
       
-      <h3 id="titleSec">RAW MATERIAL STORE (Shift Report)</h3>
+      <h3 id="titleSec">Shift Report Generator</h3>
       <div class="mainCont">
          
          <div class="secDS">
@@ -95,6 +95,15 @@
             </div>
             <button type="button" onclick="addDispatch()">+ Add Dispatch</button>
          </div>
+
+         <div class="secRMK">
+            <!-- Remark Section -->
+            <div id="remark">
+               <label class="main" for="remark">Remark:</label>
+            </div>
+            <button type="button" onclick="addRemark()">+ Add Remark</button>
+         </div>
+         
          <div class="secRM">
             <!-- Reservation Data Section -->
             <div id="reservation-data">
@@ -136,6 +145,13 @@
                <select name="report-generated-by">
                   <option value="Vishal">Vishal</option>
                   <option value="Akshay">Akshay</option>
+                  <option value="Akshay">Aakash</option>
+                  <option value="Akshay">Naresh</option>
+                  <option value="Akshay">Gayatri</option>
+                  <option value="Vishal">Pallavi</option>
+                  <option value="Akshay">Amisha</option>
+                  <option value="Akshay">Dipak</option>
+                  <option value="Akshay">Sejal</option>
                </select>
             </div>
          </div>
@@ -149,6 +165,13 @@
             <button class="btn" onclick="exportAsTXT()"><img src="https://img.icons8.com/?size=100&id=5cCAUCqFJ9kg&format=png&color=000000" alt="Export as Text" title="Export as Text"></button>
             <button class="btn" onclick="exportAsExcel()"><img src="https://img.icons8.com/?size=100&id=fpOk8nCYoOOj&format=png&color=000000" alt="Export as Excel" title="Export as Excel"></button>
          </div>
+
+         <footer class="footer">
+            <div class="footer-content">
+                <p>©2024 <span>Nagpur RMS</span>. All rights reserved.</p>
+            </div>
+        </footer>
+        
       
       <!-- Include the libraries -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
