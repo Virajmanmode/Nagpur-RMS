@@ -5,6 +5,7 @@ body {
 	padding: 0;
 	box-sizing: border-box;
 	background-color: #f8f8ff;
+	color: #25265e;
 }
 
 .headH {
@@ -24,6 +25,10 @@ body {
 	border: 1px solid #e8e8e8;
 	font-family: "Kanit", sans-serif;
 	z-index: 99;
+}
+
+.headH span {
+	color: #25265eab;
 }
 
 .headI {
@@ -51,7 +56,7 @@ h3#titleSec {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 20px;
+  margin-block: 20px 50px;
   align-content: center;
 }
 
@@ -62,14 +67,19 @@ h3#titleSec {
 .secRM,
 .secDT,
 .secDP,
+.secRMK,
 .secRP {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: #fff;
-  border-radius: 12px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
   padding: 25px 15px;
+  border-top: 5px solid #7b57ff;
   box-shadow: 0px 5px 10px rgba(86, 89, 146, 0.05),
   rgba(86, 89, 146, 0.05) 0px -3px 6px 0px inset;;
   margin: 10px;
@@ -89,11 +99,15 @@ h3#titleSec {
       max-width: 45%; /* Ensure a max-width of 50% */
   }
 
-  .mainCont > div:first-child,
-  .mainCont > div:last-child {
+  .mainCont > div:first-child {
       flex: 1 1 100%; /* Make the first and last children take full width */
       max-width: 100%; /* Ensure a max-width of 100% */
   }
+
+  .mainCont > div:last-child {
+	height: max-content;
+  }
+
 }
 
 
@@ -149,6 +163,7 @@ button {
   	color: rgb(241, 241, 241);
   	border-radius: 20px;
   	box-shadow: 0 4px 6px -1px #977ef3, 0 2px 4px -1px #977ef3;
+	user-select: none;
 }
 
 button:hover {
@@ -242,6 +257,11 @@ select {
 	box-shadow: 0px 8px 12px rgba(2,30,84,.06), rgba(86, 89, 146, 0.05) 0px -3px 6px 0px inset;
 }
 
+select:focus {
+	outline: none;
+	border-color: #7b57ff;
+}
+
 input[type="number"] {
 	width: 5ch;
 }
@@ -275,4 +295,16 @@ input[type="text"] {
 	align-items: center;
 	justify-content: center;
 	z-index: 5;
+}
+
+footer {
+	display: flex;
+    justify-content: center;
+    padding-bottom: 55px;
+	color: #25265eab;
+}
+
+footer span {
+	color: #25265e;
+	font-weight: 400;
 }
