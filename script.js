@@ -6,6 +6,12 @@ document.getElementById("date").value = today;
 // Define the vehicle options globally, grouped by their categories
 const vehicleOptions = [
     {
+        label: 'Default',
+        options: [
+            { value: 'NA', text: 'NA' },
+        ]
+    },
+    {
         label: 'Chemicals',
         options: [
             { value: 'R224', text: 'R224' },
@@ -33,7 +39,8 @@ const vehicleOptions = [
             { value: 'R135', text: 'R135' },
             { value: 'R729', text: 'R729' },
             { value: 'R3029', text: 'R3029' },
-            { value: 'R3007', text: 'R3007' }
+            { value: 'R3007', text: 'R3007' },
+            { value: 'R327/R280', text: 'R327/R280' }
         ]
     },
     {
@@ -68,14 +75,16 @@ const vehicleOptions = [
         ]
     },
     {
-        label: 'Dipp roll with suffix DIP',
+        label: 'Dipp roll',
         options: [
             { value: '2444DIP', text: '2444DIP' },
             { value: '2553DIP', text: '2553DIP' },
             { value: 'ST151DIP', text: 'ST151DIP' },
             { value: '2490DIP', text: '2490DIP' },
             { value: '2440DIP', text: '2440DIP' },
-            { value: '1960DIP', text: '1960DIP' }
+            { value: '1960DIP', text: '1960DIP' },
+            { value: '2444DIP/1960DIP', text: '2444DIP/1960DIP' },
+            { value: '2444DIP/2553DIP', text: '2444DIP/2553DIP' }
         ]
     },
     {
@@ -92,7 +101,12 @@ const vehicleOptions = [
             { value: 'P08345', text: 'P08345' },
             { value: 'P09358', text: 'P09358' },
             { value: 'P09954', text: 'P09954' },
-            { value: 'P12629', text: 'P12629' }
+            { value: 'P12629', text: 'P12629' },
+            { value: 'R08343/P08344', text: 'R08343/P08344' },
+            { value: 'R08343/P08345', text: 'R08343/P08345' },
+            { value: 'R08344/P08345', text: 'R08344/P08345' },
+            { value: 'R08343/P08344/P08345', text: 'R08343/P08344/P08345' },
+            { value: 'R08343/P09358', text: 'R08343/P09358' },
         ]
     },
     {
@@ -113,6 +127,30 @@ const vehicleOptions = [
             { value: 'R6158B', text: 'R6158B' },
             { value: 'R6158W', text: 'R6158W' },
             { value: 'R6158G', text: 'R6158G' },
+            { value: 'R6158Y/R6158O', text: 'R6158Y/R6158O' },
+            { value: 'R6158Y/R6158P', text: 'R6158Y/R6158P' },
+            { value: 'R6158Y/R6158R', text: 'R6158Y/R6158R' },
+            { value: 'R6158Y/R6158B', text: 'R6158Y/R6158B' },
+            { value: 'R6158Y/R6158W', text: 'R6158Y/R6158W' },
+            { value: 'R6158Y/R6158G', text: 'R6158Y/R6158G' },
+            { value: 'R6158O/R6158Y', text: 'R6158O/R6158Y' },
+            { value: 'R6158O/R6158P', text: 'R6158O/R6158P' },
+            { value: 'R6158O/R6158R', text: 'R6158O/R6158R' },
+            { value: 'R6158O/R6158B', text: 'R6158O/R6158B' },
+            { value: 'R6158O/R6158W', text: 'R6158O/R6158W' },
+            { value: 'R6158O/R6158G', text: 'R6158O/R6158G' },
+            { value: 'R6158P/R6158O', text: 'R6158P/R6158O' },
+            { value: 'R6158P/R6158Y', text: 'R6158P/R6158Y' },
+            { value: 'R6158P/R6158R', text: 'R6158P/R6158R' },
+            { value: 'R6158P/R6158B', text: 'R6158P/R6158B' },
+            { value: 'R6158P/R6158W', text: 'R6158P/R6158W' },
+            { value: 'R6158P/R6158G', text: 'R6158P/R6158G' },
+            { value: 'R6158R/R6158O', text: 'R6158R/R6158O' },
+            { value: 'R6158R/R6158P', text: 'R6158R/R6158P' },
+            { value: 'R6158R/R6158Y', text: 'R6158R/R6158Y' },
+            { value: 'R6158R/R6158B', text: 'R6158R/R6158B' },
+            { value: 'R6158R/R6158W', text: 'R6158R/R6158W' },
+            { value: 'R6158R/R6158G', text: 'R6158R/R6158G' },
             { value: 'R6161', text: 'R6161' }
         ]
     },
@@ -137,7 +175,8 @@ const vehicleOptions = [
     {
         label: 'Oil',
         options: [
-            { value: '388B', text: '388B' }
+            { value: '388B', text: '388B' },
+            { value: 'R6347', text: 'R6347' }
         ]
     },
     {
@@ -159,9 +198,17 @@ const vehicleOptions = [
             { value: 'R6340', text: 'R6340' },
             { value: 'ISNR20', text: 'ISNR20' },
             { value: 'R1522', text: 'R1522' },
-            { value: 'R6142', text: 'R6142' }
+            { value: 'R6142', text: 'R6142' },
+            { value: 'R2019', text: 'R2019' },
+            { value: '400SEY', text: '400SEY' }
         ]
-    }
+    },
+    {
+        label: 'Other',
+        options: [
+            { value: 'LW776', text: 'LW776' }
+        ]
+    },
 ];
 
 // Function to create a select box with grouped vehicle options
@@ -204,30 +251,41 @@ function addVehicle(vehicle = '') {
     const newSelect = createVehicleSelect('vehicle-unloaded', vehicle);
 
     // Create a clear button for each unloaded row
-    const clearButton = document.createElement('button');
-    clearButton.type = 'button'; // Prevent form submission
-    clearButton.classList.add('clear'); // Add the 'clear' class
+    const actionButton = document.createElement('button');
+    actionButton.type = 'button'; // Prevent form submission
+    actionButton.classList.add('clear'); // Add the 'clear' class
 
-    // Create an image element for the button
+    // Create an image element for the button (initially Clear button)
     const imgElement = document.createElement('img');
-    imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Image URL
+    imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Clear icon URL
     imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
     imgElement.style.width = '15px'; // Adjust the size as needed
     imgElement.style.height = '15px';
 
     // Append the image to the button
-    clearButton.appendChild(imgElement);
+    actionButton.appendChild(imgElement);
 
+    // Add event listener to the button
+    actionButton.addEventListener('click', () => {
+        // On first click, change to verify mode
+        if (actionButton.classList.contains('clear')) {
+            actionButton.classList.remove('clear');
+            actionButton.classList.add('verify');
 
-    // Add event listener to clear button to remove the unloaded row
-    clearButton.addEventListener('click', () => {
-        unloadedDiv.removeChild(unloadedRow); // Remove the row from the DOM
-        saveUnloadedVehicles(); // Auto-save for this section
+            // Change the icon to a "right tick" for verification
+            imgElement.src = 'https://img.icons8.com/?size=100&id=82769&format=png&color=000000'; // Verify tick icon URL
+            imgElement.alt = 'Verify';
+        } 
+        // On second click (verification), remove the row
+        else if (actionButton.classList.contains('verify')) {
+            unloadedDiv.removeChild(unloadedRow); // Remove the row from the DOM
+            saveUnloadedVehicles(); // Auto-save for this section
+        }
     });
 
-    // Append the select and clear button to the unloaded row
+    // Append the select and action button to the unloaded row
     unloadedRow.appendChild(newSelect);
-    unloadedRow.appendChild(clearButton);
+    unloadedRow.appendChild(actionButton);
 
     // Append the unloaded row to the unloaded vehicles section
     unloadedDiv.appendChild(unloadedRow);
@@ -252,6 +310,7 @@ function loadSavedVehicles() {
     });
 }
 
+
 /** VEHICLE PENDING SECTION **/
 
 // Function to add a new vehicle selection box with range input for pending vehicles
@@ -271,31 +330,43 @@ function addPendingVehicle(vehicle = '', count = 1) {
     newInput.max = '10';
     newInput.value = count; // Set the input to the saved count
 
-    // Create a clear button for each unloaded row
-    const clearButton = document.createElement('button');
-    clearButton.type = 'button'; // Prevent form submission
-    clearButton.classList.add('clear'); // Add the 'clear' class
+   // Create a clear button for each unloaded row
+   const actionButton = document.createElement('button');
+   actionButton.type = 'button'; // Prevent form submission
+   actionButton.classList.add('clear'); // Add the 'clear' class
 
-    // Create an image element for the button
-    const imgElement = document.createElement('img');
-    imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Image URL
-    imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
-    imgElement.style.width = '15px'; // Adjust the size as needed
-    imgElement.style.height = '15px';
+   // Create an image element for the button (initially Clear button)
+   const imgElement = document.createElement('img');
+   imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Clear icon URL
+   imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
+   imgElement.style.width = '15px'; // Adjust the size as needed
+   imgElement.style.height = '15px';
 
-    // Append the image to the button
-    clearButton.appendChild(imgElement);
+   // Append the image to the button
+   actionButton.appendChild(imgElement);
 
-    // Add event listener to clear button to remove the pending row
-    clearButton.addEventListener('click', () => {
-        pendingDiv.removeChild(pendingRow); // Remove the row from the DOM
-        savePendingVehicles(); // Auto-save for this section
-    });
+   // Add event listener to the button
+   actionButton.addEventListener('click', () => {
+       // On first click, change to verify mode
+       if (actionButton.classList.contains('clear')) {
+           actionButton.classList.remove('clear');
+           actionButton.classList.add('verify');
+
+           // Change the icon to a "right tick" for verification
+           imgElement.src = 'https://img.icons8.com/?size=100&id=82769&format=png&color=000000'; // Verify tick icon URL
+           imgElement.alt = 'Verify';
+       } 
+       // On second click (verification), remove the row
+       else if (actionButton.classList.contains('verify')) {
+           pendingDiv.removeChild(pendingRow); // Remove the row from the DOM
+           savePendingVehicles(); // Auto-save for this section
+       }
+   });
 
     // Append the select, input, and clear button to the pending row
     pendingRow.appendChild(newSelect);
     pendingRow.appendChild(newInput);
-    pendingRow.appendChild(clearButton);
+    pendingRow.appendChild(actionButton);
 
     // Append the pending row to the pending vehicles section
     pendingDiv.appendChild(pendingRow);
@@ -336,28 +407,40 @@ function addGRNDone(grnDone = '') {
     const newSelect = createVehicleSelect('grn-done', grnDone);
 
     // Create a clear button for each unloaded row
-    const clearButton = document.createElement('button');
-    clearButton.type = 'button'; // Prevent form submission
-    clearButton.classList.add('clear'); // Add the 'clear' class
+    const actionButton = document.createElement('button');
+    actionButton.type = 'button'; // Prevent form submission
+    actionButton.classList.add('clear'); // Add the 'clear' class
 
-    // Create an image element for the button
+    // Create an image element for the button (initially Clear button)
     const imgElement = document.createElement('img');
-    imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Image URL
+    imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Clear icon URL
     imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
     imgElement.style.width = '15px'; // Adjust the size as needed
     imgElement.style.height = '15px';
 
     // Append the image to the button
-    clearButton.appendChild(imgElement);
+    actionButton.appendChild(imgElement);
 
-    // Add event listener to clear the row and save
-    clearButton.addEventListener('click', () => {
-        grnDoneDiv.removeChild(newDiv);
-        saveGRNDone(); // Auto-save after removing
+    // Add event listener to the button
+    actionButton.addEventListener('click', () => {
+        // On first click, change to verify mode
+        if (actionButton.classList.contains('clear')) {
+            actionButton.classList.remove('clear');
+            actionButton.classList.add('verify');
+
+            // Change the icon to a "right tick" for verification
+            imgElement.src = 'https://img.icons8.com/?size=100&id=82769&format=png&color=000000'; // Verify tick icon URL
+            imgElement.alt = 'Verify';
+        } 
+        // On second click (verification), remove the row
+        else if (actionButton.classList.contains('verify')) {
+            grnDoneDiv.removeChild(newDiv); // Remove the row from the DOM
+            saveGRNDone(); // Auto-save for this section
+        }
     });
 
     newDiv.appendChild(newSelect);
-    newDiv.appendChild(clearButton);
+    newDiv.appendChild(actionButton);
     grnDoneDiv.appendChild(newDiv);
 }
 
@@ -397,29 +480,41 @@ function addGRNPending(grnPending = '', remark = '') {
     newRemarkInput.value = remark;
 
     // Create a clear button for each unloaded row
-    const clearButton = document.createElement('button');
-    clearButton.type = 'button'; // Prevent form submission
-    clearButton.classList.add('clear'); // Add the 'clear' class
+    const actionButton = document.createElement('button');
+    actionButton.type = 'button'; // Prevent form submission
+    actionButton.classList.add('clear'); // Add the 'clear' class
 
-    // Create an image element for the button
+    // Create an image element for the button (initially Clear button)
     const imgElement = document.createElement('img');
-    imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Image URL
+    imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Clear icon URL
     imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
     imgElement.style.width = '15px'; // Adjust the size as needed
     imgElement.style.height = '15px';
 
     // Append the image to the button
-    clearButton.appendChild(imgElement);
+    actionButton.appendChild(imgElement);
 
-    // Add event listener to clear the row and save
-    clearButton.addEventListener('click', () => {
-        grnPendingDiv.removeChild(newDiv);
-        saveGRNPending(); // Auto-save after removing
+    // Add event listener to the button
+    actionButton.addEventListener('click', () => {
+        // On first click, change to verify mode
+        if (actionButton.classList.contains('clear')) {
+            actionButton.classList.remove('clear');
+            actionButton.classList.add('verify');
+
+            // Change the icon to a "right tick" for verification
+            imgElement.src = 'https://img.icons8.com/?size=100&id=82769&format=png&color=000000'; // Verify tick icon URL
+            imgElement.alt = 'Verify';
+        } 
+        // On second click (verification), remove the row
+        else if (actionButton.classList.contains('verify')) {
+            grnPendingDiv.removeChild(newDiv); // Remove the row from the DOM
+            saveGRNPending(); // Auto-save for this section
+        }
     });
 
     newDiv.appendChild(newSelect);
     newDiv.appendChild(newRemarkInput);
-    newDiv.appendChild(clearButton);
+    newDiv.appendChild(actionButton);
     grnPendingDiv.appendChild(newDiv);
 }
 
@@ -457,28 +552,40 @@ function addMESDone(mesDone = '') {
     const newSelect = createVehicleSelect('mes-done', mesDone);
 
     // Create a clear button for each unloaded row
-    const clearButton = document.createElement('button');
-    clearButton.type = 'button'; // Prevent form submission
-    clearButton.classList.add('clear'); // Add the 'clear' class
+    const actionButton = document.createElement('button');
+    actionButton.type = 'button'; // Prevent form submission
+    actionButton.classList.add('clear'); // Add the 'clear' class
 
-    // Create an image element for the button
+    // Create an image element for the button (initially Clear button)
     const imgElement = document.createElement('img');
-    imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Image URL
+    imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Clear icon URL
     imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
     imgElement.style.width = '15px'; // Adjust the size as needed
     imgElement.style.height = '15px';
 
     // Append the image to the button
-    clearButton.appendChild(imgElement);
+    actionButton.appendChild(imgElement);
 
-    // Add event listener to clear the row and save
-    clearButton.addEventListener('click', () => {
-        mesDoneDiv.removeChild(newDiv);
-        saveMESDone(); // Auto-save after removing
+    // Add event listener to the button
+    actionButton.addEventListener('click', () => {
+        // On first click, change to verify mode
+        if (actionButton.classList.contains('clear')) {
+            actionButton.classList.remove('clear');
+            actionButton.classList.add('verify');
+
+            // Change the icon to a "right tick" for verification
+            imgElement.src = 'https://img.icons8.com/?size=100&id=82769&format=png&color=000000'; // Verify tick icon URL
+            imgElement.alt = 'Verify';
+        } 
+        // On second click (verification), remove the row
+        else if (actionButton.classList.contains('verify')) {
+            mesDoneDiv.removeChild(newDiv); // Remove the row from the DOM
+            saveMESDone(); // Auto-save for this section
+        }
     });
 
     newDiv.appendChild(newSelect);
-    newDiv.appendChild(clearButton);
+    newDiv.appendChild(actionButton);
     mesDoneDiv.appendChild(newDiv);
 }
 
@@ -525,30 +632,42 @@ function addMESPending(mesPending = '', lot = 1, remark = '') {
     newRemarkInput.value = remark;
 
     // Create a clear button for each unloaded row
-    const clearButton = document.createElement('button');
-    clearButton.type = 'button'; // Prevent form submission
-    clearButton.classList.add('clear'); // Add the 'clear' class
+    const actionButton = document.createElement('button');
+    actionButton.type = 'button'; // Prevent form submission
+    actionButton.classList.add('clear'); // Add the 'clear' class
 
-    // Create an image element for the button
+    // Create an image element for the button (initially Clear button)
     const imgElement = document.createElement('img');
-    imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Image URL
+    imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Clear icon URL
     imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
     imgElement.style.width = '15px'; // Adjust the size as needed
     imgElement.style.height = '15px';
 
     // Append the image to the button
-    clearButton.appendChild(imgElement);
+    actionButton.appendChild(imgElement);
 
-    // Add event listener to clear the row and save
-    clearButton.addEventListener('click', () => {
-        mesPendingDiv.removeChild(newDiv);
-        saveMESPending(); // Auto-save after removing
+    // Add event listener to the button
+    actionButton.addEventListener('click', () => {
+        // On first click, change to verify mode
+        if (actionButton.classList.contains('clear')) {
+            actionButton.classList.remove('clear');
+            actionButton.classList.add('verify');
+
+            // Change the icon to a "right tick" for verification
+            imgElement.src = 'https://img.icons8.com/?size=100&id=82769&format=png&color=000000'; // Verify tick icon URL
+            imgElement.alt = 'Verify';
+        } 
+        // On second click (verification), remove the row
+        else if (actionButton.classList.contains('verify')) {
+            mesPendingDiv.removeChild(newDiv); // Remove the row from the DOM
+            saveMESPending(); // Auto-save for this section
+        }
     });
 
     newDiv.appendChild(newSelect);
     newDiv.appendChild(newLotInput);
     newDiv.appendChild(newRemarkInput);
-    newDiv.appendChild(clearButton);
+    newDiv.appendChild(actionButton);
     mesPendingDiv.appendChild(newDiv);
 }
 
@@ -605,30 +724,42 @@ function addMajorDownTime(fromTime = '', toTime = '', remark = '') {
     newRemarkInput.style.flex = '1';
 
     // Create a clear button for each unloaded row
-    const clearButton = document.createElement('button');
-    clearButton.type = 'button'; // Prevent form submission
-    clearButton.classList.add('clear'); // Add the 'clear' class
+    const actionButton = document.createElement('button');
+    actionButton.type = 'button'; // Prevent form submission
+    actionButton.classList.add('clear'); // Add the 'clear' class
 
-    // Create an image element for the button
+    // Create an image element for the button (initially Clear button)
     const imgElement = document.createElement('img');
-    imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Image URL
+    imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Clear icon URL
     imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
     imgElement.style.width = '15px'; // Adjust the size as needed
     imgElement.style.height = '15px';
 
     // Append the image to the button
-    clearButton.appendChild(imgElement);
+    actionButton.appendChild(imgElement);
 
-    // Clear row and auto-save
-    clearButton.addEventListener('click', () => {
-        majorDownTimeDiv.removeChild(newDiv);
-        saveMajorDownTime(); // Auto-save after removal
+    // Add event listener to the button
+    actionButton.addEventListener('click', () => {
+        // On first click, change to verify mode
+        if (actionButton.classList.contains('clear')) {
+            actionButton.classList.remove('clear');
+            actionButton.classList.add('verify');
+
+            // Change the icon to a "right tick" for verification
+            imgElement.src = 'https://img.icons8.com/?size=100&id=82769&format=png&color=000000'; // Verify tick icon URL
+            imgElement.alt = 'Verify';
+        } 
+        // On second click (verification), remove the row
+        else if (actionButton.classList.contains('verify')) {
+            majorDownTimeDiv.removeChild(newDiv); // Remove the row from the DOM
+            saveMajorDownTime(); // Auto-save for this section
+        }
     });
 
     newDiv.appendChild(newFromInput);
     newDiv.appendChild(newToInput);
     newDiv.appendChild(newRemarkInput);
-    newDiv.appendChild(clearButton);
+    newDiv.appendChild(actionButton);
     majorDownTimeDiv.appendChild(newDiv);
 }
 
@@ -683,30 +814,42 @@ function addDownTime(fromTime = '', toTime = '', remark = '') {
     newRemarkInput.style.flex = '1';
 
     // Create a clear button for each unloaded row
-    const clearButton = document.createElement('button');
-    clearButton.type = 'button'; // Prevent form submission
-    clearButton.classList.add('clear'); // Add the 'clear' class
+    const actionButton = document.createElement('button');
+    actionButton.type = 'button'; // Prevent form submission
+    actionButton.classList.add('clear'); // Add the 'clear' class
 
-    // Create an image element for the button
+    // Create an image element for the button (initially Clear button)
     const imgElement = document.createElement('img');
-    imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Image URL
+    imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Clear icon URL
     imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
     imgElement.style.width = '15px'; // Adjust the size as needed
     imgElement.style.height = '15px';
 
     // Append the image to the button
-    clearButton.appendChild(imgElement);
+    actionButton.appendChild(imgElement);
 
-    // Clear row and auto-save
-    clearButton.addEventListener('click', () => {
-        downTimeDiv.removeChild(newDiv);
-        saveDownTime(); // Auto-save after removal
+    // Add event listener to the button
+    actionButton.addEventListener('click', () => {
+        // On first click, change to verify mode
+        if (actionButton.classList.contains('clear')) {
+            actionButton.classList.remove('clear');
+            actionButton.classList.add('verify');
+
+            // Change the icon to a "right tick" for verification
+            imgElement.src = 'https://img.icons8.com/?size=100&id=82769&format=png&color=000000'; // Verify tick icon URL
+            imgElement.alt = 'Verify';
+        } 
+        // On second click (verification), remove the row
+        else if (actionButton.classList.contains('verify')) {
+            downTimeDiv.removeChild(newDiv); // Remove the row from the DOM
+            saveDownTime(); // Auto-save for this section
+        }
     });
 
     newDiv.appendChild(newFromInput);
     newDiv.appendChild(newToInput);
     newDiv.appendChild(newRemarkInput);
-    newDiv.appendChild(clearButton);
+    newDiv.appendChild(actionButton);
     downTimeDiv.appendChild(newDiv);
 }
 
@@ -751,28 +894,40 @@ function addDispatch(dispatch = '') {
     newInput.style.flex = '1';
 
     // Create a clear button for each unloaded row
-    const clearButton = document.createElement('button');
-    clearButton.type = 'button'; // Prevent form submission
-    clearButton.classList.add('clear'); // Add the 'clear' class
+    const actionButton = document.createElement('button');
+    actionButton.type = 'button'; // Prevent form submission
+    actionButton.classList.add('clear'); // Add the 'clear' class
 
-    // Create an image element for the button
+    // Create an image element for the button (initially Clear button)
     const imgElement = document.createElement('img');
-    imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Image URL
+    imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Clear icon URL
     imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
     imgElement.style.width = '15px'; // Adjust the size as needed
     imgElement.style.height = '15px';
 
     // Append the image to the button
-    clearButton.appendChild(imgElement);
+    actionButton.appendChild(imgElement);
 
-    // Clear row and auto-save
-    clearButton.addEventListener('click', () => {
-        dispatchDiv.removeChild(newDiv);
-        saveDispatch(); // Auto-save after removal
+    // Add event listener to the button
+    actionButton.addEventListener('click', () => {
+        // On first click, change to verify mode
+        if (actionButton.classList.contains('clear')) {
+            actionButton.classList.remove('clear');
+            actionButton.classList.add('verify');
+
+            // Change the icon to a "right tick" for verification
+            imgElement.src = 'https://img.icons8.com/?size=100&id=82769&format=png&color=000000'; // Verify tick icon URL
+            imgElement.alt = 'Verify';
+        } 
+        // On second click (verification), remove the row
+        else if (actionButton.classList.contains('verify')) {
+            dispatchDiv.removeChild(newDiv); // Remove the row from the DOM
+            saveDispatch(); // Auto-save for this section
+        }
     });
 
     newDiv.appendChild(newInput);
-    newDiv.appendChild(clearButton);
+    newDiv.appendChild(actionButton);
     dispatchDiv.appendChild(newDiv);
 }
 
@@ -810,29 +965,41 @@ function addRemark(remark = '') {
     newInput.value = remark; // Default to saved or blank
     newInput.style.flex = '1';
 
-    // Create a clear button for each remark row
-    const clearButton = document.createElement('button');
-    clearButton.type = 'button'; // Prevent form submission
-    clearButton.classList.add('clear'); // Add the 'clear' class
+   // Create a clear button for each unloaded row
+   const actionButton = document.createElement('button');
+   actionButton.type = 'button'; // Prevent form submission
+   actionButton.classList.add('clear'); // Add the 'clear' class
 
-    // Create an image element for the button
-    const imgElement = document.createElement('img');
-    imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Image URL
-    imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
-    imgElement.style.width = '15px'; // Adjust the size as needed
-    imgElement.style.height = '15px';
+   // Create an image element for the button (initially Clear button)
+   const imgElement = document.createElement('img');
+   imgElement.src = 'https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000'; // Clear icon URL
+   imgElement.alt = 'Clear'; // Alternative text in case image doesn't load
+   imgElement.style.width = '15px'; // Adjust the size as needed
+   imgElement.style.height = '15px';
 
-    // Append the image to the button
-    clearButton.appendChild(imgElement);
+   // Append the image to the button
+   actionButton.appendChild(imgElement);
 
-    // Clear row and auto-save
-    clearButton.addEventListener('click', () => {
-        remarkDiv.removeChild(newDiv);
-        saveRemark(); // Auto-save after removal
-    });
+   // Add event listener to the button
+   actionButton.addEventListener('click', () => {
+       // On first click, change to verify mode
+       if (actionButton.classList.contains('clear')) {
+           actionButton.classList.remove('clear');
+           actionButton.classList.add('verify');
+
+           // Change the icon to a "right tick" for verification
+           imgElement.src = 'https://img.icons8.com/?size=100&id=82769&format=png&color=000000'; // Verify tick icon URL
+           imgElement.alt = 'Verify';
+       } 
+       // On second click (verification), remove the row
+       else if (actionButton.classList.contains('verify')) {
+           remarkDiv.removeChild(newDiv); // Remove the row from the DOM
+           saveRemark(); // Auto-save for this section
+       }
+   });
 
     newDiv.appendChild(newInput);
-    newDiv.appendChild(clearButton);
+    newDiv.appendChild(actionButton);
     remarkDiv.appendChild(newDiv);
 }
 
@@ -856,6 +1023,14 @@ function loadRemark() {
 }
 
 
+// Function to update the pending field automatically
+function updatePending() {
+    const received = parseFloat(document.querySelector('input[name="received"]').value) || 0;
+    const posted = parseFloat(document.querySelector('input[name="posted"]').value) || 0;
+    const pending = received - posted;
+    document.querySelector('input[name="pending"]').value = pending >= 0 ? pending : 0; // Ensure pending is not negative
+}
+
 // Function to save Reservation Data
 function saveReservationData() {
     const reservationData = {
@@ -872,8 +1047,22 @@ function loadReservationData() {
     const reservationData = JSON.parse(localStorage.getItem('reservationData')) || {};
     document.querySelector('input[name="received"]').value = reservationData.received || 1;
     document.querySelector('input[name="posted"]').value = reservationData.posted || 1;
-    document.querySelector('input[name="pending"]').value = reservationData.pending || 1;
+    
+    // Call updatePending() to automatically calculate pending on page load
+    updatePending();
 }
+
+// Attach event listeners to update pending when received or posted changes
+document.querySelector('input[name="received"]').addEventListener('input', () => {
+    updatePending();
+    saveReservationData(); // Auto-save the data when received changes
+});
+
+document.querySelector('input[name="posted"]').addEventListener('input', () => {
+    updatePending();
+    saveReservationData(); // Auto-save the data when posted changes
+});
+
 
 // Function to save Manpower Data
 function saveManpowerData() {
