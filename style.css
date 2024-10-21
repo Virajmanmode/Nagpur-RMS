@@ -6,6 +6,7 @@ body {
 	box-sizing: border-box;
 	background-color: #f8f8ff;
 	color: #25265e;
+	transition: all .3s ease;
 }
 
 .headH {
@@ -197,7 +198,7 @@ button.btn img {
 	width: 25px;
 }
 
-button.clear {
+button.clear, button.verify {
 	border-radius: 8px;
  	transition: all .6s ease;
 	padding: 9px 10px;
@@ -213,7 +214,13 @@ button.clear {
 	align-items: center;
 }
 
-button.clear:hover {
+button.verify {
+	background-color: #e6ffe6;
+	transition-duration: .2s;
+}
+
+
+button.clear:hover, button.verify:hover {
 	background-color: #fff;
     transition-duration: .2s;
 }
