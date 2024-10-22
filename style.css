@@ -20,7 +20,7 @@ body::before {
 		  )
 		  50% 50% / 2.75rem 2.75rem,
 		  linear-gradient(color-mix(in oklch, canvasText, transparent 70%) 0.0625rem, transparent 0.0625rem 2.75rem) 50% 50% / 2.75rem 2.75rem;
-		mask: linear-gradient(-20deg, transparent 70%, #f0f0f0);
+		mask: linear-gradient(-20deg, transparent 75%, #f0f0f0);
 		top: 20px;
 		transform-style: flat;
 		pointer-events: none;
