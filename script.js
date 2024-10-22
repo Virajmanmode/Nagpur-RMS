@@ -251,6 +251,14 @@ const dispatchOptions = [
         ]
     },
     {
+        label: 'Other',
+        options: [
+            { value: 'Empty spool/Empty Stand', text: 'Empty spool/Empty Stand' },
+            { value: 'Empty spool', text: 'Empty spool' },
+            { value: 'Empty Stand', text: 'Empty Stand' }
+        ]
+    },
+    {
         label: 'Yes Industries 59030473',
         options: [
             { value: 'SCPNE06 Scrap PVC can 50Lts', text: 'SCPNE06 Scrap PVC can 50Lts' },
