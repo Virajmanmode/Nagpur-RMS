@@ -1816,25 +1816,36 @@ alert(`Excel file downloaded successfully: ${filename}`);
 
 
 
-        async function submitData() {
-            const data = {
-                date: document.getElementById('date').value,
-                shift: document.getElementById('shift').value,
-                // Add other fields as needed
-                reportGeneratedBy: document.getElementById('reportGeneratedBy').value
-            };
+       async function submitData() {
+    const dateElem = document.getElementById('date');
+    const shiftElem = document.getElementById('shift');
+    const reportGeneratedByElem = document.getElementById('reportGeneratedBy');
 
-            try {
-                const response = await fetch('https://script.google.com/macros/s/AKfycbxtZ8p-hntfZCS06tCskv3_PbSl-S04213k8d73yRlPW8G9M7pBmq6t5JX_ccYYP4Lt/exec', {
-                    method: 'POST',
-                    body: JSON.stringify(data)
-                });
+    // Verify each element exists
+    if (!dateElem || !shiftElem || !reportGeneratedByElem) {
+        console.error("One or more required form elements are missing.");
+        alert("Form fields are missing.");
+        return;
+    }
 
-                const result = await response.json();
-                alert(result.result); // Should display "Success"
-            } catch (error) {
-                console.error('Error saving data:', error);
-                alert("Failed to submit data.");
-            }
-        }
+    const data = {
+        date: dateElem.value,
+        shift: shiftElem.value,
+        reportGeneratedBy: reportGeneratedByElem.value
+    };
+
+    try {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbxtZ8p-hntfZCS06tCskv3_PbSl-S04213k8d73yRlPW8G9M7pBmq6t5JX_ccYYP4Lt/exec', {
+            method: 'POST',
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        alert(result.result); // Should display "Success"
+    } catch (error) {
+        console.error('Error saving data:', error);
+        alert("Failed to submit data.");
+    }
+}
+
 
