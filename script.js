@@ -1819,7 +1819,7 @@ alert(`Excel file downloaded successfully: ${filename}`);
        async function submitData() {
     const dateElem = document.getElementById('date');
     const shiftElem = document.getElementById('shift');
-    const reportGeneratedByElem = document.getElementById('reportGeneratedBy');
+    const reportGeneratedByElem = document.getElementById('report-generated-by');
 
     // Verify each element exists
     if (!dateElem || !shiftElem || !reportGeneratedByElem) {
