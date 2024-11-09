@@ -1844,7 +1844,7 @@ async function submitData() {
     };
 
     try {
-        const response = await fetch('https://script.google.com/d/1Y03FNFvEjvUJRQHDyvZimjmOT9W2UiJg0zftMaFfPzQcieUHWsVV4LEb/edit?usp=sharing', { 
+        const response = await fetch('https://script.google.com/macros/s/AKfycbxtZ8p-hntfZCS06tCskv3_PbSl-S04213k8d73yRlPW8G9M7pBmq6t5JX_ccYYP4Lt/exec', { 
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
