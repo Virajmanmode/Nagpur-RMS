@@ -1812,3 +1812,47 @@ XLSX.writeFile(workbook, filename);
 alert(`Excel file downloaded successfully: ${filename}`);
 
 }
+
+
+
+
+
+async function submitData() {
+    const data = {
+        date: document.getElementById('date').value,
+        shift: document.getElementById('shift').value,
+        vehiclesUnloaded: Array.from(document.querySelectorAll('#vehicle-unloaded select')).map(vehicle => vehicle.value).join(', '),
+        vehiclesPending: Array.from(document.querySelectorAll('#vehicle-pending select')).map(vehicle => `${vehicle.value} (Count: ${vehicle.nextElementSibling.value})`).join(', '),
+        grnDone: Array.from(document.querySelectorAll('#grn-done select')).map(grn => grn.value).join(', '),
+        grnPending: Array.from(document.querySelectorAll('#grn-pending select')).map(grn => `${grn.value} (Remark: ${grn.nextElementSibling.value})`).join(', '),
+        mesDone: Array.from(document.querySelectorAll('#mes-done select')).map(mes => mes.value).join(', '),
+        mesPending: Array.from(document.querySelectorAll('#mes-pending select')).map(mes => `${mes.value} (Lot Count: ${mes.nextElementSibling.value}, Remark: ${mes.nextElementSibling.nextElementSibling.value})`).join(', '),
+        majorDownTimes: Array.from(document.querySelectorAll('#major-downtime .inline')).map(downtime => `Duration: ${downtime.children[0].value} minutes (Remark: ${downtime.children[1].value})`).join(', '),
+        downTimes: Array.from(document.querySelectorAll('#downtime .inline')).map(downtime => `Duration: ${downtime.children[0].value} minutes (Remark: ${downtime.children[1].value})`).join(', '),
+        dispatchDetails: Array.from(document.querySelectorAll('#dispatch select[name="dispatch"]')).map(dispatch => dispatch.options[dispatch.selectedIndex].text).join(', '),
+        remarkDetails: Array.from(document.querySelectorAll('#remark input[name="remark"]')).map(remark => remark.value).join(', '),
+        reservationData: {
+            received: document.querySelector('#reservation-data input[name="received"]').value,
+            posted: document.querySelector('#reservation-data input[name="posted"]').value,
+            pending: document.querySelector('#reservation-data input[name="pending"]').value
+        },
+        manpowerData: {
+            required: document.querySelector('#manpower-data select[name="required"]').value,
+            reported: document.querySelector('#manpower-data input[name="reported"]').value
+        },
+        reportGeneratedBy: document.querySelector('#report-generated-by select[name="report-generated-by"]').value
+    };
+
+    try {
+        const response = await fetch('https://script.google.com/d/1Y03FNFvEjvUJRQHDyvZimjmOT9W2UiJg0zftMaFfPzQcieUHWsVV4LEb/edit?usp=sharing', { 
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        alert(result.message);
+    } catch (error) {
+        alert('Error saving data: ' + error);
+    }
+}
