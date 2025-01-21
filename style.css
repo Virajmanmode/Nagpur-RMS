@@ -2,6 +2,7 @@ body {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
 	background-color: #f8f8ff;
 	color: #25265e;
 	transition: all .3s ease;
@@ -177,6 +178,27 @@ button {
   }
   
   button:hover {
+	background-color: #111;
+  }
+
+ a.btn  {
+	box-sizing: border-box;
+	border: 0;
+	border-radius: 20px;
+	color: #fff;
+	padding: 10px 20px;
+	background: #645bff;
+	display: flex;
+	transition: 0.2s background;
+	align-items: center;
+	gap: 0.6em;
+	font-weight: bold;
+	cursor: pointer;
+	justify-content: center;
+	text-decoration: none;
+  }
+  
+  a.btn:hover {
 	background-color: #111;
   }
 

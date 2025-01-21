@@ -4,7 +4,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Nagpur RMS (CEAT)</title>
-      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="../style.css">
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -26,7 +26,10 @@
             <img src="https://www.ceat.com/content/dam/ceat/website/logo.png" height="25" width="90" alt="CEAT Logo">
             <h1>RMS</h1>
          </div>
-         <span>v1.1</span>
+         <div class="headL">
+         <button onclick="logout()">Logout</button>
+         <span class="small">v1.5</span>
+         </div>
       </div>
       
       <h3 id="titleSec">Shift Report Generator</h3>
@@ -209,6 +212,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
-      <script src="script.js"></script>
+      <script src="../script.js"></script>
+      <script src="../auth.js"></script>
    </body>
 </html>
