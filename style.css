@@ -486,6 +486,10 @@ footer span {
   -webkit-text-fill-color: transparent;
   }
 
+  .heroText a.btn {
+	margin-inline-start: 25px;
+}
+
   @media (min-width: 768px) {
 	.landing {
 		height: 600px;

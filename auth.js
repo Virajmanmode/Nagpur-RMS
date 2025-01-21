@@ -3,7 +3,7 @@ function checkLoginStatusAndRedirect() {
     const sessionUser = sessionStorage.getItem("user");
 
     if (!storedUser && !sessionUser) {
-        window.location.href = "index.html";
+        window.location.href = "../index.html";
         return false;
     }
     return true;
