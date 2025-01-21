@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Nagpur RMS (CEAT)</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+      <!-- Open Graph Tags -->
+      <meta property="og:title" content="Nagpur RMS" />
+       <meta property="og:description" content="Nagpur RMS - Your reliable source for raw material management and services." />
+       <meta property="og:image" content="https://i.ibb.co/HXRnd2Z/Ceat-logo.jpg" />
+       <meta property="og:url" content="https://ceatnagpur-rms.netlify.app/" />
+      <meta property="og:type" content="website" />
+
+       <!-- Optional: Twitter Cards -->
+      <meta name="twitter:title" content="Nagpur RMS" />
+      <meta name="twitter:description" content="Nagpur RMS - Your reliable source for raw material management and services." />
+      <meta name="twitter:image" content="https://i.ibb.co/HXRnd2Z/Ceat-logo.jpg" />
+   </head>
+   <body>
+      <div class="headH">
+         <div class="headI">
+            <img src="https://www.ceat.com/content/dam/ceat/website/logo.png" height="25" width="90" alt="CEAT Logo">
+            <h1>RMS</h1>
+         </div>
+         <div class="headL">
+         <button onclick="logout()">Logout</button>
+         <span class="small">v1.5</span>
+         </div>
+      </div>
+
+
+      <div class="landing">
+        <div class="img-overlay"></div>
+        <div class="heroText">
+         <h2>Streamlining Operations, Empowering Our Team: <span>Welcome to RMS</span></h2>
+         <p>RMS is a dedicated web application designed to simplify daily tasks, enhance collaboration, and boost efficiency within our department. This platform provides essential tools and resources, all in one convenient location.</p>
+         <button href="#tools">Explore the Tools</button>
+         </div>
+     </div>
+
+     <div class="tools-grid" id="tools">
+
+         <div class="tool-card">
+             <h3>Shift Report Generator</h3>
+             <p>Generate accurate and timely shift reports with ease.</p>
+             <button href="pages/shift-report-generator.html">Go to tool</button>
+         </div>
+
+         <div class="tool-card">
+             <h3>Shift Schedule Generator</h3>
+             <p>Create and manage shift schedules efficiently.</p>
+             <button href="#">Go to tool</button>
+         </div>
+
+         <div class="tool-card">
+             <h3>Scrap Consignment Generator</h3>
+             <p>Streamline the process of creating scrap consignments.</p>
+             <button href="#">Go to tool</button>
+         </div>
+
+         <div class="tool-card">
+             <h3>SAP T-Code Guide</h3>
+             <p>Quick reference guide for commonly used SAP T-codes.</p>
+             <button href="#">Go to tool</button>
+         </div>
+         <div class="tool-card">
+             <h3>Department Contacts</h3>
+             <p>Quick access to department contact information.</p>
+             <button href="#">Go to tool</button>
+         </div>
+          <div class="tool-card">
+             <h3>Useful Links</h3>
+             <p>Access to important internal links and documents.</p>
+             <button href="#">Go to tool</button>
+         </div>
+
+         </div>
+
+
+      <footer class="footer">
+        <div class="footer-content">
+            <p>©2024 <span>Nagpur RMS</span>. All rights reserved.</p>
+        </div>
+     </footer>
+
+     <script>
+      function logout() {
+          localStorage.removeItem("user");
+          sessionStorage.removeItem("user");
+          window.location.href = "index.html";
+      }
+
+      function checkLoginStatus() {
+          const storedUser = localStorage.getItem("user");
+          const sessionUser = sessionStorage.getItem("user");
+
+          if (!storedUser && !sessionUser) {
+              window.location.href = "index.html"; // Redirect if not logged in
+          }
+      }
+
+      checkLoginStatus(); // Check on page load
+  </script>
+
+       <!-- Include the libraries -->
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+       <script src="script.js"></script>
+    </body>
+ </html>

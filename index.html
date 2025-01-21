@@ -5,14 +5,15 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Nagpur RMS (CEAT)</title>
       <link rel="stylesheet" href="style.css">
-
-      <link rel="icon" href="https://i.ibb.co/Sxs9Y2w/Ceat-RMS-Logo.png" type="image/png">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
       <!-- Open Graph Tags -->
       <meta property="og:title" content="Nagpur RMS" />
        <meta property="og:description" content="Nagpur RMS - Your reliable source for raw material management and services." />
        <meta property="og:image" content="https://i.ibb.co/HXRnd2Z/Ceat-logo.jpg" />
        <meta property="og:url" content="https://ceatnagpur-rms.netlify.app/" />
-       <meta property="og:type" content="website" />
+      <meta property="og:type" content="website" />
 
        <!-- Optional: Twitter Cards -->
       <meta name="twitter:title" content="Nagpur RMS" />
@@ -20,178 +21,106 @@
       <meta name="twitter:image" content="https://i.ibb.co/HXRnd2Z/Ceat-logo.jpg" />
    </head>
    <body>
-      <div class="headH">
-         <div class="headI">
-            <img src="https://www.ceat.com/content/dam/ceat/website/logo.png" height="25" width="90" alt="CEAT Logo">
-            <h1>RMS</h1>
-         </div>
-         <span>v1.2</span>
+      <div class="login-container">
+      <div class="top-container">
+         <img src="https://www.ceat.com/content/dam/ceat/website/logo.png" height="25" width="90" alt="CEAT Logo">
       </div>
-      
-      <h3 id="titleSec">Shift Report Generator</h3>
-      <form id="shiftReportForm">
-      <div class="mainCont">
-         
-         <div class="secDS">
-            <!-- Date Input -->
-            <div class="dateSec">
-               <label class="main" for="date">Date:</label>
-               <input type="date" id="date" name="date">
-            </div>
-            <!-- Shift Selection -->
-            <div class="shiftSec">
-               <label class="main" for="shift">Shift:</label>
-               <select id="shift" name="shift">
-                  <option value="A">A</option>
-                  <option value="B">B</option>
-                  <option value="C">C</option>
-               </select>
-            </div>
-         </div>
-         <div class="secVU">
-            <div class="unloadSec">
-               <!-- Vehicle Unloaded Section -->
-               <div id="vehicle-unloaded">
-                  <label class="main" for="vehicle">Vehicle Unloaded:</label>
-                  <!-- Select boxes will be added here dynamically -->
+      <div class="bottom-container">
+              <div class="top-box">
+                  <h2>Nice to see you!</h2>
+                  <p>Enter your ID and Password to proceed</p>
+              </div>
+              <div class="input-container">
+               <div class="input-field">
+                  <label for="username" class="main">ID</label>
+                  <input type="text" id="username" placeholder="Username">
                </div>
-            </div>
-            <button type="button" onclick="addVehicle()">+ Add Vehicle</button>
-            <div class="upendingSec">
-               <!-- Vehicle Unloading Pending Section -->
-               <div id="vehicle-pending">
-                  <label class="main" for="vehicle-pending">Vehicle Unloading Pending:</label>
-                  <!-- Select boxes will be added here dynamically -->
+               <div class="input-field">
+                  <label for="password" class="main">Password</label>
+                  <input type="password" id="password" placeholder="Password">
                </div>
-            </div>
-            <button type="button" onclick="addPendingVehicle()">+ Add Pending Vehicle</button>
-         </div>
-         <div class="secGRN">
-            <!-- GRN Done Section -->
-            <div id="grn-done">
-               <label class="main" for="grn-done">GRN Done:</label>
-            </div>
-            <button type="button" onclick="addGRNDone()">+ Add GRN Done</button>
-            <!-- GRN Pending Section -->
-            <div id="grn-pending">
-               <label class="main" for="grn-pending">GRN Pending:</label>
-            </div>
-            <button type="button" onclick="addGRNPending()">+ Add GRN Pending</button>
-         </div>
-         <div class="secMES">
-            <!-- MES Done Section -->
-            <div id="mes-done">
-               <label class="main" for="mes-done">MES Done:</label>
-            </div>
-            <button type="button" onclick="addMESDone()">+ Add MES Done</button>
-            <!-- MES Pending Section -->
-            <div id="mes-pending">
-               <label class="main" for="mes-pending">MES Pending:</label>
-            </div>
-            <button type="button" onclick="addMESPending()">+ Add MES Pending</button>
-         </div>
-         <div class="secDT">
-            <!-- Major Down Time Section -->
-            <div id="major-downtime">
-               <label class="main" for="major-downtime">Major Down Time:</label>
-            </div>
-            <button type="button" onclick="addMajorDownTime()">+ Add Major Down Time</button>
-            <!-- Down Time Section -->
-            <div id="downtime">
-               <label class="main" for="downtime">Down Time:</label>
-            </div>
-            <button type="button" onclick="addDownTime()">+ Add Down Time</button>
-         </div>
-         <div class="secDP">
-            <!-- Dispatch Section -->
-            <div id="dispatch">
-               <label class="main" for="dispatch">Dispatch:</label>
-            </div>
-            <button type="button" onclick="addDispatch()">+ Add Dispatch</button>
-         </div>
+               <div class="toggle-container">
+                <input type="checkbox" id="rememberMe">
+                <label for="checkbox" class="small">Remember me</label>
+              </div>
+              </div> 
+              
+              <button onclick="login()" class="full">Login</button>
+            <div id="message"></div>
+            <p class="small">Don't know ID & Password? <strong>Contact us</strong></p>
+          </div>
+   </div>
 
-         <div class="secRMK">
-            <!-- Remark Section -->
-            <div id="remark">
-               <label class="main" for="remark">Remark:</label>
-            </div>
-            <button type="button" onclick="addRemark()">+ Add Remark</button>
-         </div>
-         
-         <div class="secRM">
-            <!-- Reservation Data Section -->
-            <div id="reservation-data">
-               <label class="main" for="reservation-data">Reservation Data:</label>
-               <div class="inline">
-                  <label for="received">Received:</label>
-                  <input type="number" name="received" min="1" max="20" value="1" style="width: 60px;">
-               </div>
-               <div class="inline">
-                  <label for="posted">Posted:</label>
-                  <input type="number" name="posted" min="1" max="20" value="1" style="width: 60px;">
-               </div>
-               <div class="inline">
-                  <label for="pending">Pending:</label>
-                  <input type="number" name="pending" min="1" max="20" value="1" style="width: 60px;">
-               </div>
-            </div>
-            <!-- Manpower Data Section -->
-            <div id="manpower-data">
-               <label class="main" for="manpower-data">Manpower Data:</label>
-               <div class="inline">
-                  <label for="required">Required:</label>
-                  <select name="required">
-                     <option value="11">11</option>
-                     <option value="12">12</option>
-                     <option value="7">7</option>
-                  </select>
-               </div>
-               <div class="inline">
-                  <label for="reported">Reported:</label>
-                  <input type="number" name="reported" min="1" max="12" value="1" style="width: 60px;">
-               </div>
-            </div>
-         </div>
-         <!-- Report Generated By Section -->
-         <div class="secRP" id="report-generated-by">
-            <div class="inline">
-               <label class="main" for="report-generated-by">Report Generated By:</label>
-               <select name="report-generated-by">
-                  <option value="Vishal">Vishal</option>
-                  <option value="Akshay">Akshay</option>
-                  <option value="Akshay">Aakash</option>
-                  <option value="Akshay">Naresh</option>
-                  <option value="Akshay">Gayatri</option>
-                  <option value="Vishal">Pallavi</option>
-                  <option value="Akshay">Amisha</option>
-                  <option value="Akshay">Dipak</option>
-                  <option value="Akshay">Sejal</option>
-                  <option value="Akshay">Other</option>
-               </select>
-            </div>
-         </div>
-        
-        </div>
-      </form>
-        
-         <div class="exportBtn">
-            <button type="button" onclick="submitData()" class="btn"><img src="https://img.icons8.com/?size=48&id=K6FkUVH0GtOD&format=png" alt=""></button>
+<script>
+const messageDiv = document.getElementById('message');
 
-            <button type="button" class="btn" onclick="saveAllSections()"><img src="https://img.icons8.com/?size=100&id=16501&format=png&color=000000" alt="Save" title="Save"></button>
-            <button type="button" class="btn" onclick="copyToClipboard()"><img src="https://img.icons8.com/?size=100&id=rVeCjZRybO5y&format=png&color=000000" alt="Copy to clipboard" title="Copy to clipboard"></button>
-            <!-- Export Buttons -->
-            <button class="btn" onclick="exportAsPDF()"><img src="https://img.icons8.com/?size=100&id=BHEB7fl4z8q7&format=png&color=000000" alt="Export as PDF" title="Export as PDF"></button>
-            <button class="btn" onclick="exportAsTXT()"><img src="https://img.icons8.com/?size=100&id=5cCAUCqFJ9kg&format=png&color=000000" alt="Export as Text" title="Export as Text"></button>
-            <button class="btn" onclick="exportAsExcel()"><img src="https://img.icons8.com/?size=100&id=fpOk8nCYoOOj&format=png&color=000000" alt="Export as Excel" title="Export as Excel"></button>
-         </div>
+function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const rememberMe = document.getElementById('rememberMe').checked;
 
-         <footer class="footer">
-            <div class="footer-content">
-                <p>©2024 <span>Nagpur RMS</span>. All rights reserved.</p>
-            </div>
-        </footer>
-        
-      
+    // VERY IMPORTANT: NEVER store passwords directly. Hash them!
+    // This is a simplified example. In a real application, use a robust hashing library like bcrypt or scrypt.
+    const hashedPassword = simpleHash(password);
+
+    // In a real application, you would check against a database of user credentials.
+    // This is a mock check for demonstration purposes.
+    if (username === "NGPRMS" && hashedPassword === simpleHash("Ceat@123")) {
+
+        if (rememberMe) {
+            const expiryDate = new Date();
+            expiryDate.setDate(expiryDate.getDate() + 30); // Remember for 30 days
+            const userData = {username: username, expiry: expiryDate.getTime()};
+            localStorage.setItem("user", JSON.stringify(userData));
+        } else {
+            // Set a temporary session (5 minutes)
+            sessionStorage.setItem("user", JSON.stringify({username: username}));
+            setTimeout(logout, 5 * 60 * 1000); // Logout after 5 minutes
+        }
+        messageDiv.textContent = "Login successful!";
+        window.location.href = "homepage.html"; // Redirect to welcome page
+    } else {
+        messageDiv.textContent = "Invalid credentials.";
+    }
+}
+
+function checkLoginStatus() {
+    const storedUser = localStorage.getItem("user");
+    const sessionUser = sessionStorage.getItem("user");
+
+    if (storedUser) {
+        const userData = JSON.parse(storedUser);
+        if (new Date().getTime() < userData.expiry) {
+            window.location.href = "homepage.html"; // Auto-login if remember me is checked and not expired
+        } else {
+            localStorage.removeItem("user"); // Clear expired data
+        }
+    } else if (sessionUser) {
+        window.location.href = "homepage.html";
+    }
+}
+
+function logout() {
+    localStorage.removeItem("user");
+    sessionStorage.removeItem("user");
+    window.location.href = "index.html"; // Redirect to login page
+}
+
+// Very basic hashing function - DO NOT USE IN PRODUCTION
+function simpleHash(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        hash = (hash << 5) - hash + str.charCodeAt(i);
+        hash |= 0; // Convert to 32bit integer
+    }
+    return hash.toString();
+}
+
+// Check login status on page load
+checkLoginStatus();
+</script>
+
+
       <!-- Include the libraries -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>

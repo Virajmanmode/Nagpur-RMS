@@ -251,14 +251,6 @@ const dispatchOptions = [
         ]
     },
     {
-        label: 'Other',
-        options: [
-            { value: 'Empty spool/Empty Stand', text: 'Empty spool/Empty Stand' },
-            { value: 'Empty spool', text: 'Empty spool' },
-            { value: 'Empty Stand', text: 'Empty Stand' }
-        ]
-    },
-    {
         label: 'Yes Industries 59030473',
         options: [
             { value: 'SCPNE06 Scrap PVC can 50Lts', text: 'SCPNE06 Scrap PVC can 50Lts' },
@@ -818,22 +810,22 @@ function loadMESPending() {
 
 /** MAJOR DOWN TIME SECTION **/
 
-// Function to add a new Major Down Time row (minutes, remark)
-function addMajorDownTime(minutes = '', remark = '') {
+// Function to add a new Major Down Time row (from time, to time, remark)
+function addMajorDownTime(fromTime = '', toTime = '', remark = '') {
     const majorDownTimeDiv = document.getElementById('major-downtime');
     const newDiv = document.createElement('div');
     newDiv.classList.add('inline');
 
-    // Create minutes input box
-    const newMinutesInput = document.createElement('input');
-    newMinutesInput.type = 'number';
-    newMinutesInput.name = 'minutes';
-    newMinutesInput.placeholder = 'Minutes';
-    newMinutesInput.value = minutes; // Default to saved or blank
-    newMinutesInput.min = '0'; // Ensure no negative values
-    newMinutesInput.style.width = '100px'; // Adjust the width as needed
+    const newFromInput = document.createElement('input');
+    newFromInput.type = 'time';
+    newFromInput.name = 'from-time';
+    newFromInput.value = fromTime; // Default to saved or blank
 
-    // Create remark input box
+    const newToInput = document.createElement('input');
+    newToInput.type = 'time';
+    newToInput.name = 'to-time';
+    newToInput.value = toTime; // Default to saved or blank
+
     const newRemarkInput = document.createElement('input');
     newRemarkInput.type = 'text';
     newRemarkInput.name = 'remark';
@@ -841,7 +833,7 @@ function addMajorDownTime(minutes = '', remark = '') {
     newRemarkInput.value = remark; // Default to saved or blank
     newRemarkInput.style.flex = '1';
 
-    // Create a clear button for each row
+    // Create a clear button for each unloaded row
     const actionButton = document.createElement('button');
     actionButton.type = 'button'; // Prevent form submission
     actionButton.classList.add('clear'); // Add the 'clear' class
@@ -874,8 +866,8 @@ function addMajorDownTime(minutes = '', remark = '') {
         }
     });
 
-    // Append the input fields and button to the new row
-    newDiv.appendChild(newMinutesInput);
+    newDiv.appendChild(newFromInput);
+    newDiv.appendChild(newToInput);
     newDiv.appendChild(newRemarkInput);
     newDiv.appendChild(actionButton);
     majorDownTimeDiv.appendChild(newDiv);
@@ -885,10 +877,12 @@ function addMajorDownTime(minutes = '', remark = '') {
 function saveMajorDownTime() {
     const majorDownTimeArray = [];
     document.querySelectorAll('#major-downtime .inline').forEach(row => {
-        const minutes = row.querySelector('input[name="minutes"]').value;
+        const fromTime = row.querySelector('input[name="from-time"]').value;
+        const toTime = row.querySelector('input[name="to-time"]').value;
         const remark = row.querySelector('input[name="remark"]').value;
         majorDownTimeArray.push({
-            minutes,
+            fromTime,
+            toTime,
             remark
         });
     });
@@ -900,29 +894,28 @@ function saveMajorDownTime() {
 function loadMajorDownTime() {
     const majorDownTimeData = JSON.parse(localStorage.getItem('majorDownTime')) || [];
     majorDownTimeData.forEach(data => {
-        addMajorDownTime(data.minutes, data.remark);
+        addMajorDownTime(data.fromTime, data.toTime, data.remark);
     });
 }
 
-
 /** DOWN TIME SECTION **/
 
-// Function to add a new Down Time row (minutes, remark)
-function addDownTime(minutes = '', remark = '') {
+// Function to add a new Down Time row (from time, to time, remark)
+function addDownTime(fromTime = '', toTime = '', remark = '') {
     const downTimeDiv = document.getElementById('downtime');
     const newDiv = document.createElement('div');
     newDiv.classList.add('inline');
 
-    // Create the input for minutes
-    const newMinutesInput = document.createElement('input');
-    newMinutesInput.type = 'number';
-    newMinutesInput.name = 'minutes';
-    newMinutesInput.value = minutes; // Default to saved or blank
-    newMinutesInput.min = '0'; // Ensure no negative values
-    newMinutesInput.style.width = '100px'; // Adjust the width as needed
-    newMinutesInput.placeholder = 'Minutes';
+    const newFromInput = document.createElement('input');
+    newFromInput.type = 'time';
+    newFromInput.name = 'from-time';
+    newFromInput.value = fromTime; // Default to saved or blank
 
-    // Create the input for remark
+    const newToInput = document.createElement('input');
+    newToInput.type = 'time';
+    newToInput.name = 'to-time';
+    newToInput.value = toTime; // Default to saved or blank
+
     const newRemarkInput = document.createElement('input');
     newRemarkInput.type = 'text';
     newRemarkInput.name = 'remark';
@@ -930,7 +923,7 @@ function addDownTime(minutes = '', remark = '') {
     newRemarkInput.value = remark; // Default to saved or blank
     newRemarkInput.style.flex = '1';
 
-    // Create a clear button for each row
+    // Create a clear button for each unloaded row
     const actionButton = document.createElement('button');
     actionButton.type = 'button'; // Prevent form submission
     actionButton.classList.add('clear'); // Add the 'clear' class
@@ -963,8 +956,8 @@ function addDownTime(minutes = '', remark = '') {
         }
     });
 
-    // Append inputs and button to the new row div
-    newDiv.appendChild(newMinutesInput);
+    newDiv.appendChild(newFromInput);
+    newDiv.appendChild(newToInput);
     newDiv.appendChild(newRemarkInput);
     newDiv.appendChild(actionButton);
     downTimeDiv.appendChild(newDiv);
@@ -974,10 +967,12 @@ function addDownTime(minutes = '', remark = '') {
 function saveDownTime() {
     const downTimeArray = [];
     document.querySelectorAll('#downtime .inline').forEach(row => {
-        const minutes = row.querySelector('input[name="minutes"]').value;
+        const fromTime = row.querySelector('input[name="from-time"]').value;
+        const toTime = row.querySelector('input[name="to-time"]').value;
         const remark = row.querySelector('input[name="remark"]').value;
         downTimeArray.push({
-            minutes,
+            fromTime,
+            toTime,
             remark
         });
     });
@@ -989,12 +984,9 @@ function saveDownTime() {
 function loadDownTime() {
     const downTimeData = JSON.parse(localStorage.getItem('downTime')) || [];
     downTimeData.forEach(data => {
-        addDownTime(data.minutes, data.remark);
+        addDownTime(data.fromTime, data.toTime, data.remark);
     });
 }
-
-
-/** DISPATCH SECTION **/
 
 // Function to add a new Dispatch row (with select box)
 function addDispatch(dispatch = '') {
@@ -1299,24 +1291,24 @@ function exportAsTXT() {
     });
 
     // Major Down Time
-const majorDownTimes = document.querySelectorAll('#major-downtime .inline');
-txtData += "\n*⏸️ Major Down Time:*\n";
-majorDownTimes.forEach(downtime => {
-    const minutes = downtime.children[0].value; // Now it's the minutes input
-    const remark = downtime.children[1].value;  // Remark input
-    txtData += `- Duration: ${minutes} minutes (Remark: ${remark})\n`;
-});
+    const majorDownTimes = document.querySelectorAll('#major-downtime .inline');
+    txtData += "\n*⏸️ Major Down Time:*\n";
+    majorDownTimes.forEach(downtime => {
+        const fromTime = downtime.children[0].value;
+        const toTime = downtime.children[1].value;
+        const remark = downtime.children[2].value;
+        txtData += `- From: ${fromTime}, To: ${toTime} (Remark: ${remark})\n`;
+    });
 
-
-// Down Time
-const downTimes = document.querySelectorAll('#downtime .inline');
-txtData += "\n*⏲️ Down Time:*\n";
-downTimes.forEach(downtime => {
-    const minutes = downtime.children[0].value; // Minutes input
-    const remark = downtime.children[1].value;  // Remark input
-    txtData += `- Duration: ${minutes} minutes (Remark: ${remark})\n`;
-});
-
+    // Down Time
+    const downTimes = document.querySelectorAll('#downtime .inline');
+    txtData += "\n*⏲️ Down Time:*\n";
+    downTimes.forEach(downtime => {
+        const fromTime = downtime.children[0].value;
+        const toTime = downtime.children[1].value;
+        const remark = downtime.children[2].value;
+        txtData += `- From: ${fromTime}, To: ${toTime} (Remark: ${remark})\n`;
+    });
 
     // Dispatch
 const dispatchDetails = document.querySelectorAll('#dispatch select[name="dispatch"]');
@@ -1356,146 +1348,26 @@ remarkDetails.forEach(remark => {
     const reportGeneratedBy = document.querySelector('#report-generated-by select[name="report-generated-by"]').value;
     txtData += `\n*Report Generated By:* ${reportGeneratedBy}\n`;
 
-
-    // Get the current date in the desired format (YYMMDD)
-const currentDate = new Date();
-const options = { year: '2-digit', month: '2-digit', day: '2-digit' };
-const formattedDate = currentDate.toLocaleDateString('en-GB', options).replace(/\//g, '');
-
-// Create the filename with the current date
-const filename = `RMS_ShiftReport_${formattedDate}.txt`;
-
-// Download as .txt file
-const blob = new Blob([txtData], {
-    type: 'text/plain'
-});
-const link = document.createElement('a');
-link.href = URL.createObjectURL(blob);
-link.download = filename; // Use the new filename
-document.body.appendChild(link);
-link.click();
-document.body.removeChild(link);
-
-// Update alert message to include filename
-alert(`Data downloaded as ${filename}!`);
-
-}
-
-
-function copyToClipboard() {
-    const date = document.getElementById('date').value;
-    const shift = document.getElementById('shift').value;
-
-    let txtData = `*📊 RAW MATERIAL STORE (Shift Report)*\n*📅 Date:* ${date}\n*🕒 Shift:* ${shift}\n\n`;
-
-    // Vehicle Unloaded
-    const vehiclesUnloaded = document.querySelectorAll('#vehicle-unloaded select');
-    txtData += "*🚛 Vehicles Unloaded:*\n";
-    vehiclesUnloaded.forEach(vehicle => {
-        txtData += `- ${vehicle.value}\n`;
-    });
-
-    // Vehicle Unloading Pending
-    const vehiclesPending = document.querySelectorAll('#vehicle-pending select');
-    txtData += "\n*⏳ Vehicles Unloading Pending:*\n";
-    vehiclesPending.forEach((vehicle, index) => {
-        const count = vehicle.nextElementSibling.value;
-        txtData += `- ${vehicle.value} (Count: ${count})\n`;
-    });
-
-    // GRN Done
-    const grnDone = document.querySelectorAll('#grn-done select');
-    txtData += "\n*✅ GRN Done:*\n";
-    grnDone.forEach(grn => {
-        txtData += `- ${grn.value}\n`;
-    });
-
-    // GRN Pending
-    const grnPending = document.querySelectorAll('#grn-pending select');
-    txtData += "\n*❌ GRN Pending:*\n";
-    grnPending.forEach(grn => {
-        const remark = grn.nextElementSibling.value;
-        txtData += `- ${grn.value} (Remark: ${remark})\n`;
-    });
-
-    // MES Done
-    const mesDone = document.querySelectorAll('#mes-done select');
-    txtData += "\n*✅ MES Done:*\n";
-    mesDone.forEach(mes => {
-        txtData += `- ${mes.value}\n`;
-    });
-
-    // MES Pending
-    const mesPending = document.querySelectorAll('#mes-pending select');
-    txtData += "\n*⏳ MES Pending:*\n";
-    mesPending.forEach(mes => {
-        const count = mes.nextElementSibling.value;
-        const remark = mes.nextElementSibling.nextElementSibling.value;
-        txtData += `- ${mes.value} (Lot Count: ${count}, Remark: ${remark})\n`;
-    });
-
-    // Major Down Time
-    const majorDownTimes = document.querySelectorAll('#major-downtime .inline');
-    txtData += "\n*⏸️ Major Down Time:*\n";
-    majorDownTimes.forEach(downtime => {
-        const minutes = downtime.children[0].value; // Minutes input
-        const remark = downtime.children[1].value;  // Remark input
-        txtData += `- Duration: ${minutes} minutes (Remark: ${remark})\n`;
-    });
-
-    // Down Time
-    const downTimes = document.querySelectorAll('#downtime .inline');
-    txtData += "\n*⏲️ Down Time:*\n";
-    downTimes.forEach(downtime => {
-        const minutes = downtime.children[0].value; // Minutes input
-        const remark = downtime.children[1].value;  // Remark input
-        txtData += `- Duration: ${minutes} minutes (Remark: ${remark})\n`;
-    });
-
-    // Dispatch
-    const dispatchDetails = document.querySelectorAll('#dispatch select[name="dispatch"]');
-    txtData += "\n*📦 Dispatch:*\n";
-    dispatchDetails.forEach(dispatch => {
-        txtData += `- ${dispatch.options[dispatch.selectedIndex].text}\n`; // Get the selected option's text
-    });
-
-    // Remark
-    const remarkDetails = document.querySelectorAll('#remark input[name="remark"]');
-    txtData += "\n*📝 Remark:*\n";
-    remarkDetails.forEach(remark => {
-        txtData += `- ${remark.value}\n`;
-    });
-
-    // Reservation Data
-    const received = document.querySelector('#reservation-data input[name="received"]').value;
-    const posted = document.querySelector('#reservation-data input[name="posted"]').value;
-    const pending = document.querySelector('#reservation-data input[name="pending"]').value;
-
-    txtData += `\n*🗂️ Reservation Data:*\n`;
-    txtData += `- Received: ${received}\n`;
-    txtData += `- Posted: ${posted}\n`;
-    txtData += `- Pending: ${pending}\n`;
-
-    // Manpower Data
-    const required = document.querySelector('#manpower-data select[name="required"]').value;
-    const reported = document.querySelector('#manpower-data input[name="reported"]').value;
-
-    txtData += `\n*👥 Manpower Data:*\n`;
-    txtData += `- Required: ${required}\n`;
-    txtData += `- Reported: ${reported}\n`;
-
-    // Report Generated By
-    const reportGeneratedBy = document.querySelector('#report-generated-by select[name="report-generated-by"]').value;
-    txtData += `\n*Report Generated By:* ${reportGeneratedBy}\n`;
-
     // Copy to Clipboard
     navigator.clipboard.writeText(txtData).then(() => {
-        alert('Data copied to clipboard!');
+        alert('Data copied to clipboard! 📋');
     }).catch(err => {
         console.error('Error copying text: ', err);
     });
-}
 
+    // Download as .txt file
+    const blob = new Blob([txtData], {
+        type: 'text/plain'
+    });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'shift_report.txt';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    alert('Data downloaded as shift_report.txt! 📥');
+}
 
 function exportAsPDF() {
     const {
@@ -1586,41 +1458,41 @@ function exportAsPDF() {
         pdf.text(`- ${mes.value} (Lot Count: ${count}, Remark: ${remark})`, 10, yOffset += 10);
     });
 
-   // Major Down Time
-yOffset += sectionMargin; // Add margin above section title
-pdf.text('Major Down Time:', 10, yOffset + 10);
-yOffset += sectionMargin; // Add margin after section title
-const majorDownTimes = document.querySelectorAll('#major-downtime .inline');
-majorDownTimes.forEach((downtime) => {
-    addPageIfNeeded();
-    const minutes = downtime.children[0].value; // Minutes input
-    const remark = downtime.children[1].value;  // Remark input
-    pdf.text(`- Duration: ${minutes} minutes (Remark: ${remark})`, 10, yOffset += 10);
-});
+    // Major Down Time
+    yOffset += sectionMargin; // Add margin above section title
+    pdf.text('Major Down Time:', 10, yOffset + 10);
+    yOffset += sectionMargin; // Add margin after section title
+    const majorDownTimes = document.querySelectorAll('#major-downtime .inline');
+    majorDownTimes.forEach((downtime) => {
+        addPageIfNeeded();
+        const fromTime = downtime.children[0].value;
+        const toTime = downtime.children[1].value;
+        const remark = downtime.children[2].value;
+        pdf.text(`- From: ${fromTime}, To: ${toTime} (Remark: ${remark})`, 10, yOffset += 10);
+    });
 
-// Down Time
-yOffset += sectionMargin; // Add margin above section title
-pdf.text('Down Time:', 10, yOffset + 10);
-yOffset += sectionMargin; // Add margin after section title
-const downTimes = document.querySelectorAll('#downtime .inline');
-downTimes.forEach((downtime) => {
-    addPageIfNeeded();
-    const minutes = downtime.children[0].value; // Minutes input
-    const remark = downtime.children[1].value;  // Remark input
-    pdf.text(`- Duration: ${minutes} minutes (Remark: ${remark})`, 10, yOffset += 10);
-});
+    // Down Time
+    yOffset += sectionMargin; // Add margin above section title
+    pdf.text('Down Time:', 10, yOffset + 10);
+    yOffset += sectionMargin; // Add margin after section title
+    const downTimes = document.querySelectorAll('#downtime .inline');
+    downTimes.forEach((downtime) => {
+        addPageIfNeeded();
+        const fromTime = downtime.children[0].value;
+        const toTime = downtime.children[1].value;
+        const remark = downtime.children[2].value;
+        pdf.text(`- From: ${fromTime}, To: ${toTime} (Remark: ${remark})`, 10, yOffset += 10);
+    });
 
-// Dispatch Section in PDF
+   // Dispatch Section in PDF
 yOffset += sectionMargin; // Add margin above section title
 pdf.text('Dispatch:', 10, yOffset + 10);
 yOffset += sectionMargin; // Add margin after section title
-const dispatchDetails = document.querySelectorAll('#dispatch .inline');
+const dispatchDetails = document.querySelectorAll('#dispatch input[name="dispatch"]');
 dispatchDetails.forEach((dispatch) => {
     addPageIfNeeded();
-    const selectedDispatch = dispatch.children[0].value; // Get the selected value from the select box
-    pdf.text(`- ${selectedDispatch}`, 10, yOffset += 10);
+    pdf.text(`- ${dispatch.value}`, 10, yOffset += 10);
 });
-
 
 // Remark Section in PDF
 yOffset += sectionMargin; // Add margin above section title
@@ -1660,18 +1532,9 @@ remarkDetails.forEach((remark) => {
     const reportGeneratedBy = document.querySelector('#report-generated-by select[name="report-generated-by"]').value;
     pdf.text(`Report Generated By: ${reportGeneratedBy}`, 10, yOffset + 10);
 
-    // Get the current date in the desired format (YYMMDD)
-const currentDate = new Date();
-const options = { year: '2-digit', month: '2-digit', day: '2-digit' };
-const formattedDate = currentDate.toLocaleDateString('en-GB', options).replace(/\//g, '');
-
-// Create the filename with the current date
-const pdfFilename = `RMS_ShiftReport_${formattedDate}.pdf`;
-
-// Save the PDF
-pdf.save(pdfFilename);
-alert(`PDF downloaded successfully: ${pdfFilename}`);
-
+    // Save the PDF
+    pdf.save('raw_material_store_report.pdf');
+    alert('PDF downloaded successfully!');
 }
 
 
@@ -1734,35 +1597,33 @@ function exportAsExcel() {
         data.push([`- ${mes.value} (Lot Count: ${count}, Remark: ${remark})`]);
     });
 
-    // Major Down Time
-data.push([]); // Add an empty row for spacing
-data.push(['Major Down Time:']);
-const majorDownTimes = document.querySelectorAll('#major-downtime .inline');
-majorDownTimes.forEach((downtime) => {
-    const minutes = downtime.children[0].value; // Get the minutes value
-    const remark = downtime.children[1].value; // Get the remark value
-    data.push([`- Minutes: ${minutes} (Remark: ${remark})`]);
-});
+    data.push([]);
+    data.push(['Major Down Time:']);
+    const majorDownTimes = document.querySelectorAll('#major-downtime .inline');
+    majorDownTimes.forEach((downtime) => {
+        const fromTime = downtime.children[0].value;
+        const toTime = downtime.children[1].value;
+        const remark = downtime.children[2].value;
+        data.push([`- From: ${fromTime}, To: ${toTime} (Remark: ${remark})`]);
+    });
 
-// Down Time
-data.push([]); // Add an empty row for spacing
-data.push(['Down Time:']);
-const downTimes = document.querySelectorAll('#downtime .inline');
-downTimes.forEach((downtime) => {
-    const minutes = downtime.children[0].value; // Get the minutes value
-    const remark = downtime.children[1].value; // Get the remark value
-    data.push([`- Minutes: ${minutes} (Remark: ${remark})`]);
-});
+    data.push([]);
+    data.push(['Down Time:']);
+    const downTimes = document.querySelectorAll('#downtime .inline');
+    downTimes.forEach((downtime) => {
+        const fromTime = downtime.children[0].value;
+        const toTime = downtime.children[1].value;
+        const remark = downtime.children[2].value;
+        data.push([`- From: ${fromTime}, To: ${toTime} (Remark: ${remark})`]);
+    });
 
-// Dispatch Section
-data.push([]); // Add an empty row for spacing
+    // Dispatch Section
+data.push([]); // Add an empty array for spacing
 data.push(['Dispatch:']); // Add a heading for Dispatch
-const dispatchDetails = document.querySelectorAll('#dispatch .inline');
+const dispatchDetails = document.querySelectorAll('#dispatch input[name="dispatch"]');
 dispatchDetails.forEach((dispatch) => {
-    const selectedDispatch = dispatch.children[0].value; // Get the selected value from the select box
-    data.push([`- ${selectedDispatch}`]); // Add each dispatch detail
+    data.push([`- ${dispatch.value}`]); // Add each dispatch detail
 });
-
 
 // Remark Section
 data.push([]); // Add an empty array for spacing
@@ -1795,68 +1656,11 @@ remarkDetails.forEach((remark) => {
     data.push([reportGeneratedBy]);
 
     // Create a new workbook and add the data
-const workbook = XLSX.utils.book_new();
-const worksheet = XLSX.utils.aoa_to_sheet(data);
-XLSX.utils.book_append_sheet(workbook, worksheet, 'Shift Report');
+    const workbook = XLSX.utils.book_new();
+    const worksheet = XLSX.utils.aoa_to_sheet(data);
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Shift Report');
 
-// Get the current date in the desired format (YYMMDD)
-const currentDate = new Date();
-const options = { year: '2-digit', month: '2-digit', day: '2-digit' };
-const formattedDate = currentDate.toLocaleDateString('en-GB', options).replace(/\//g, '');
-
-// Create the filename with the current date
-const filename = `RMS_ShiftReport_${formattedDate}.xlsx`;
-
-// Export the Excel file
-XLSX.writeFile(workbook, filename);
-alert(`Excel file downloaded successfully: ${filename}`);
-
+    // Export the Excel file
+    XLSX.writeFile(workbook, 'raw_material_store_report.xlsx');
+    alert('Excel file downloaded successfully!');
 }
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM fully loaded and parsed");
-
-    document.getElementById('shiftReportForm').onsubmit = function(event) {
-        event.preventDefault();
-        submitData();
-    };
-});
-
-async function submitData() {
-    const dateElem = document.getElementById('date');
-    const shiftElem = document.getElementById('shift');
-
-    // Debug logs to identify missing elements
-    console.log("Date Element:", dateElem);
-    console.log("Shift Element:", shiftElem);
-
-    if (!dateElem || !shiftElem) {
-        console.error("One or more required form elements are missing.");
-        alert("Form fields are missing.");
-        return;
-    }
-
-    const data = {
-        date: dateElem.value,
-        shift: shiftElem.value
-    };
-
-    try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbxtZ8p-hntfZCS06tCskv3_PbSl-S04213k8d73yRlPW8G9M7pBmq6t5JX_ccYYP4Lt/exec', {
-            method: 'POST',
-            body: JSON.stringify(data)
-        });
-
-        const result = await response.json();
-        alert(result.result);
-    } catch (error) {
-        console.error('Error saving data:', error);
-        alert("Failed to submit data.");
-    }
-}
-
-
-
